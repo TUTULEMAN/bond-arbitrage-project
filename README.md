@@ -20,12 +20,12 @@ The project has been divided into FIVE departments/groups with the following mem
 - **Data Engineers**
   - Name (year, department)
 - **SWE/Devs**
-  - Name (year, department)
+  - Zayd
 - **Risk**
   - Valentin Arroyo
   - Rohan 
 - **DevOps**
-  - Zayd
+  - Name (year, department)
 
 ## **Job Description**
 - **Quantitative Research**

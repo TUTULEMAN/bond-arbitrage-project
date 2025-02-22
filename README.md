@@ -12,21 +12,6 @@ This repository contains all the code and documentation for the bond arbitrage p
 - **`tests/`** → Holds unit tests for strategy validation  
 - **`infrastructure/`** → Manages DevOps tasks like containerization & deployment  
 
-
-## Teams/Members
-The project has been divided into FIVE departments/groups with the following members:
-- **Quantitative Research**
-  - *Tuong Max Le* ('27, BS Finance + Mathematics)
-- **Data Engineers**
-  - Name (year, department)
-- **SWE/Devs**
-  - Zayd
-- **Risk**
-  - Valentin Arroyo
-  - Rohan 
-- **DevOps**
-  - Name (year, department)
-
 ## **Job Description**
 - **Quantitative Research**
   - Develop and test bond strategies.

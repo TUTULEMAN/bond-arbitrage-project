@@ -1,0 +1,46 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{ETFs Proxies for the Secondary Bond Market and Corresponding Futures Contracts}
+\author{Zayd Alzein}
+\date{March 2025}
+
+\maketitle %
+
+\section{The Secondary Bond Market}
+
+\textbf{The secondary bond market} is a financial market where investors buy and sell previously issued bonds. 
+The secondary bond market is also known as the bond market. The bond market is an over-the-counter market, 
+meaning that it is decentralized and trading is done electronically. \textbf{This introduces challenges} for our data collection process.
+Because the bond market is decentralized, there is no central exchange where all trades are recorded.
+Instead, trades are recorded by individual dealers and reported to the Financial Industry Regulatory Authority (FINRA).
+Acquiring the pricing data for these securities is a challenge because the data is not readily available and/or is expensive to obtain.
+Therefore, we need to find alternative sources of data to find the historical secondary bond market data.
+For many of the most traded bonds, there are corresponding ETFs that track the performance of the bond.
+For example, the iShares 7-10 Year Treasury Bond ETF (IEF) tracks the performance of the 7-10 year Treasury bond.
+It turns out that these ETFs move in tandem with the underlying bond, and we can use the ETF data as a proxy for the bond data.
+
+\hspace{1cm}
+
+\section{Small List of ETFs, Corresponding Bonds, and Futures Contracts}
+
+Here is a small list of ETFs that track the performance of various bonds, along with the related or corresponding futures contracts.
+\begin{table}[h!]
+    \centering %
+    \begin{tabular}{||c c c||}
+        \hline
+        ETF Ticker & Underlying Bond & Futures Ticker \\
+        \hline
+        IEF & 7-10 Year Treasury Bond & TN1! \\
+        TLT & 20+ Year Treasury Bond & TWE1! \\
+        LQD & Investment Grade Corporate Bond & IBIG1! \\
+        HYG & High Yield Corporate Bond & IBHY1! \\
+    \end{tabular}
+    \label{table:1}
+
+\end{table} %
+
+
+\end{document}

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    container_name: timescaledb_prod
+    environment:
+      - POSTGRES_DB=arbitragedb
+      - POSTGRES_USER_FILE=/run/secrets/db_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+    secrets:
+      - db_user
+      - db_password
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$(cat /run/secrets/db_user)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  timescaledb_data:
+    driver: local
+
+secrets:
+  db_user:
+    file: ./secrets/db_user.txt
+  db_password:
+    file: ./secrets/db_password.txt

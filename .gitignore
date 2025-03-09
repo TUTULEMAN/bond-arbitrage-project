@@ -1,0 +1,41 @@
+## Mac
+.DS_Store
+
+### Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+### Jupyter
+.ipynb_checkpoints
+
+### Vscode
+.vscode
+
+### Intellij
+.idea
+
+### Secrets
+.env
+*.env
+secrets
+*.secret
+*.key
+*.pem
+
+### Venvs
+venv
+*.venv
+/.venv
+
+
+### Latex
+*.aux
+*.bbl
+*.blg
+*.log
+*.out

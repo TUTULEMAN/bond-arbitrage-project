@@ -5,27 +5,50 @@ This repository contains all the code and documentation for the bond arbitrage p
 
 ## **Description of Key Directories**  
 
-- **`data/`** → Handles raw & processed data, including a pipeline script  
-- **`research/`** → Contains Jupyter notebooks and backtesting scripts  
-- **`src/`** → Stores production-ready trading strategies and utility functions  
-- **`risk/`** → Includes risk management scripts and reports  
-- **`tests/`** → Holds unit tests for strategy validation  
-- **`infrastructure/`** → Manages DevOps tasks like containerization & deployment  
-
-## **Job Description**
-- **Quantitative Research**
-  - Develop and test bond strategies.
-  - Deductive reasoning from backtests.
-  - Responsible for the `research/` folder.
-- **Data Engineers**
-  - Source market data.
-  - Responsible for the `data/` folder.
-- **SWE/Devs**
-  - Integrate trading platform APIs.
-  - Code and integrate performance.
-  - Responsible for the `src/` folder.
-- **Risk**
-  - Monitor and oversee performance of paper account.
-  - Responsible for the `risk/` folder.
-- **DevOps**
-  - Maintain cloud services (ML + databases).
+```bash
+.
+├── data/
+│   ├── raw/                  
+│   ├── processed/            
+│   └── pipeline.py           
+│
+├── research/
+│   ├── notebooks/
+│   │   └── exploratory_analysis.ipynb
+│   │   └── backtest_strategy.ipynb
+│   └── papers/
+│   └── reports/              
+│
+├── src/
+│   ├── strategies/
+│   │   └── bond_arb_strategy.py     
+│   └── utils/
+│       ├── data_loader.py           
+│       └── indicators.py            
+│
+├── risk/
+│   ├── risk_metrics.py       
+│   └── risk_report.ipynb    
+│
+├── tests/
+│   ├── test_strategy.py      
+│   └── test_pipeline.py      
+│
+├── infrastructure/
+│   ├── Dockerfile            
+│   ├── docker-compose.yml   
+│   └── deploy.sh        
+│ 
+├── .gitignore               
+├── README.md               
+├── requirements.txt      
+└── .env                    
+```
+## **Work Flow/Transition in focus of work**
+```bash
+.
+Refining and creating bond spread backtester 
+-> Refining strategy
+-> Applying ML/RL to improve strategy
+-> Final Result/Strategy
+```

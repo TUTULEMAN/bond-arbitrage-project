@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  research:
+    build:
+      context: ..
+      dockerfile: infrastructure/Dockerfile
+      target: dev
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+    volumes:
+      - ../:/app
+      - ./jupyter:/home/quant/.jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      JUPYTER_TOKEN: "quant-research"
+    networks:
+      - quant-net
+
+  backtester:
+    build:
+      context: ..
+    command: python -m pytest tests/
+    volumes:
+      - ../:/app
+    networks:
+      - quant-net
+    depends_on:
+      - postgres
+      - redis
+
+  live:
+    build:
+      context: ..
+      target: prod
+    command: python src/strategies/bond_arb_strategy.py --live
+    environment:
+      DB_URL: postgresql://quant:${DB_PASSWORD}@postgres/marketdata
+      REDIS_URL: redis://redis:6379/0
+    networks:
+      - quant-net
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: quant
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: marketdata
+    networks:
+      - quant-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quant"]
+      interval: 5s
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redisdata:/data
+    networks:
+      - quant-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+
+  scheduler:
+    build:
+      context: ..
+    command: celery -A src.tasks worker --loglevel=info
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  redisdata:
+  jupyter:
+
+networks:
+  quant-net:
+    driver: bridge

@@ -1,0 +1,63 @@
+# === Core Development Artifacts ===
+**/__pycache__
+**/*.py[cod]
+**/*.so
+**/*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# === IDE/Editor Configs ===
+.vscode/
+.idea/
+.ropeproject/
+*.swp
+*.swo
+*.sublime-*
+.DS_Store
+
+# === Dependency Management ===
+venv/
+.env/
+.venv/
+env/
+Pipfile*
+poetry.lock
+pyproject.toml  # Only if using setup.py instead
+
+# === Data and Models ===
+data/raw/
+data/processed/*.h5
+data/processed/*.feather
+!data/processed/README.md  # Keep metadata
+
+# === Build Artifacts ===
+dist/
+build/
+*.egg-info/
+.coverage
+htmlcov/
+
+# === System/Security ===
+.env
+.env.*
+secrets.yaml
+credentials.*
+*.key
+*.cert
+*.pem
+
+# === Jupyter/Research ===
+**/.ipynb_checkpoints
+research/*.csv
+research/*.parquet
+!research/backtest_strategy.ipynb  # Keep main notebook
+
+# === Logging/Metrics ===
+*.log
+mlruns/
+mlflow/
+wandb/
+
+# === Docker Specific ===
+docker-compose.override.yml
+docker-compose.prod.yml

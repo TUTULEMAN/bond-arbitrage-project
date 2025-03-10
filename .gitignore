@@ -1,0 +1,34 @@
+# === Infrastructure Secrets ===
+# Never commit credentials or local configs
+infrastructure/.env
+docker-compose.override.yml
+
+# === Persistent Volumes ===
+# Database storage directories
+**/pgdata/
+**/redisdata/
+
+# === Local IDE Configs ===
+.vscode/
+.idea/
+
+# === Python Artifacts ===
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# === Jupyter/Research ===
+**/.ipynb_checkpoints
+research/*.csv
+research/*.parquet
+
+# === Data Pipeline ===
+data/raw/
+data/processed/*.hdf5
+!data/processed/README.md  # Keep this
+
+# === System Files ===
+.DS_Store
+Thumbs.db
+
+.env 
